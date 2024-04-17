@@ -20,7 +20,7 @@
         </template>
         <template #rightContentRender>
             <div class="right-content">
-                <AIcon type="QuestionCircleOutlined" @click="toDoc" />
+                <!-- <AIcon type="QuestionCircleOutlined" @click="toDoc" /> -->
                 <Notice style="margin: 0 24px" />
                 <UserInfo />
             </div>
