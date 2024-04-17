@@ -115,7 +115,7 @@ export const deviceImport = (productId: string, fileUrl: string, autoDeploy: boo
  * @returns 
  */
 export const deviceExport = (productId: string, type: string, params?: any) => server.get(`/device-instance${!!productId ? `/${productId}` : ''}/export.${type}`, params, {responseType: 'blob'})
-
+export const deviceExportPath = (productId: string, type: string) => (`${BASE_API_PATH}/device-instance${!!productId ? `/${productId}` : ''}/export.${type}`)
 /**
  * 验证设备ID是否重复
  * @param id 设备id
@@ -529,7 +529,7 @@ export const getPropertiesInfo = (deviceId: string, data: Record<string, unknown
  * @param data 
  * @returns 
  */
-export const getPropertiesList = (deviceId: string, property: string, data: Record<string, unknown>) => server.post(`/device-instance/${deviceId}/property/${property}/_query`, data)
+export const getPropertiesList = (deviceId: string, property: string, data: Record<string, unknown>) => server.post(`/device-instance/${deviceId}/property/${property}/_query/no-paging`, data)
 
 /**
  * 获取指定协议
@@ -607,7 +607,7 @@ export const metadataMapById = (type: 'device' | 'product', productId: string, d
 
 export const getMetadataMapById = (type: 'device' | 'product', productId: string) => server.get(`/device/metadata/mapping/${type}/${productId}`)
 
-export const getInkingDevices = (data: string[]) => server.post('/plugin/mapping/device/_all', data)
+export const getInkingDevices = (data: string[],accessId:any) => server.post(`/plugin/mapping/device/${accessId}/_all`, data)
 
 export const getProtocolMetadata = (id: string, transport: string) => server.get(`/protocol/${id}/${transport}/metadata`)
 

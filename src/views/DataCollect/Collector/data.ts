@@ -271,6 +271,8 @@ export const LeftTreeRules = {
     timeout: [{ required: true, trigger: 'blur', validator: validator4 }],
     type: [{required: true, trigger: 'change', message: '请选择型号'}],
     serializable: [{required: true, trigger: 'change', message: '请选择型号'}],
+    terminnalAddress: [{required: true, trigger: 'blur', message: '请输入分组地址'}],
+    frameAmountMax: [{required: true, message: '请输入确认帧数量', trigger: 'blur'}],
 };
 
 export const FormTableColumns = [
@@ -315,4 +317,59 @@ export const FormTableColumns = [
     },
 ];
 
-
+export const BacnetFormTableColumns = [
+    {
+        title: '名称',
+        dataIndex: 'name',
+        key: 'name',
+        width: 140,
+        fixed: 'left',
+    },
+    {
+        title: '对象类型',
+        dataIndex: 'type',
+        key: 'type',
+    },
+    {
+        title: '对象号',
+        dataIndex: 'instanceNumber',
+        key: 'instanceNumber',
+    },
+    {
+        title: '属性ID',
+        dataIndex: 'propertyId',
+        key: 'propertyId',
+        width: 200,
+    },
+    {
+        title: '值类型',
+        dataIndex: 'valueType',
+        key: 'valueType',
+        width: 200,
+    },
+    {
+        title: '访问类型',
+        dataIndex: 'accessModes',
+        key: 'accessModes',
+        width: 260,
+    },
+    {
+        title: '采集频率',
+        key: 'interval',
+        dataIndex: 'interval',
+        width: 200,
+    },
+    {
+        title: '只推送变化的数据',
+        key: 'features',
+        dataIndex: 'features',
+        width: 140,
+    },
+    {
+        title: '操作',
+        key: 'action',
+        dataIndex: 'action',
+        fixed: 'right',
+        width: 50,
+    },
+]

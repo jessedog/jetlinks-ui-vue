@@ -1,18 +1,19 @@
 <template>
-  <ParamsDropdown
-    v-model:value='myValue[0]'
-    v-model:source='mySource'
-    :valueName='valueName'
-    :labelName='labelName'
-    :options='options'
-    :icon='icon'
-    :placeholder='placeholder'
-    :tabs-options='tabsOptions'
-    :metricOptions='metricOptions'
-    @select='(v, l) => onSelect(v, l, 0)'
-    @tabChange='tabChange'
+    <ParamsDropdown
+      v-for="(i,index) in myValue"
+      v-model:value='myValue[index]'
+      v-model:source='mySource'
+      :valueName='valueName'
+      :labelName='labelName'
+      :options='options'
+      :icon='icon'
+      :placeholder='placeholder'
+      :tabs-options='tabsOptions'
+      :metricOptions='metricOptions'
+      @select='(v, l) => onSelect(v, l, index)'
+      @tabChange='tabChange'
   />
-  <ParamsDropdown
+  <!-- <ParamsDropdown
     v-model:value='myValue[1]'
     v-model:source='mySource'
     :valueName='valueName'
@@ -24,12 +25,14 @@
     :options='options'
     @select='(v, l) => onSelect(v, l,1)'
     @tabChange='tabChange'
-  />
+  /> -->
+ 
 </template>
 
 <script lang='ts' setup name='DoubleParamsDropdown'>
 import ParamsDropdown from './index.vue'
 import { defaultSetting, ValueType } from './typings'
+import Array from './Array.vue'
 
 type Emit = {
   (e: 'update:value', data: ValueType): void
@@ -38,7 +41,10 @@ type Emit = {
 }
 
 const props = defineProps({
-  ...defaultSetting
+  ...defaultSetting,
+  termType:{
+    type: String,
+  }
 })
 
 const label: Record<number, any> = {

@@ -210,7 +210,7 @@
               key="add"
               :disabled="hasOperate('add', type)"
               :tooltip="{
-                    placement: hasOperate('add', type) ? 'topRight' : 'top',
+                    placement:'top',
                     title: hasOperate('add', type)
                         ? '当前的存储方式不支持新增'
                         : '新增',
@@ -423,7 +423,7 @@ const handleAddClick = async (_data?: any, index?: number) => {
 
   const _addData = await tableRef.value.addItem(newObject, index)
   nextTick(()=>{
-    if(tableContainer.value.classList.value === 'tableContainer'){
+    if(tableContainer?.value?.classList?.value === 'tableContainer'){
       tableContainer.value.classList.remove('tableContainer')
     }
   })

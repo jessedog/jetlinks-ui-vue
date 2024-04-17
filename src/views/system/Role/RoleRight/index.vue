@@ -1,5 +1,5 @@
 <template>
-    <page-container>
+    
         <div class="role-container">
             <pro-search :columns="columns" target="system-role" @search="handelSearch" />
             <FullPage>
@@ -37,14 +37,14 @@
             <AddDialog v-if="dialogVisible" v-model:visible="dialogVisible" :groupId="groupId" :modalType="modalType"
                 :current="current" />
         </div>
-    </page-container>
+    
 </template>
 
 <script setup lang="ts" name="Role">
 import PermissionButton from '@/components/PermissionButton/index.vue';
 import AddDialog from './components/AddDialog.vue';
 import { getRoleList_api, delRole_api } from '@/api/system/role';
-import type { ActionsType } from './typings';
+import type { ActionsType } from '@/components/Table';
 import { useMenuStore } from '@/store/menu';
 import { onlyMessage } from '@/utils/comm';
 const props = defineProps({
